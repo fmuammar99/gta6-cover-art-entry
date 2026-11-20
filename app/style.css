@@ -1,0 +1,30 @@
+html, body { margin: 0; min-height: 100%; background: #12081f; color: #f5f0fa; font: 15px/1.45 system-ui, sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 16px; width: 320px; flex: none; max-height: calc(100vh - 48px); overflow-y: auto; padding-right: 4px; }
+.controls h1 { margin: 0; font-size: 30px; letter-spacing: 1px; line-height: 1.05; }
+.controls h1 span { color: #ff5e62; }
+.tagline { margin: 0; color: #c9b8d9; }
+fieldset { border: 1px solid #3d2a55; border-radius: 10px; padding: 12px; margin: 0; display: flex; flex-direction: column; gap: 10px; background: rgba(255,255,255,0.03); }
+legend { font-weight: 800; letter-spacing: 0.5px; padding: 0 6px; color: #ffd166; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+label.file-label { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; }
+input[type=text], select { font: inherit; padding: 8px; border: 1px solid #5b4480; border-radius: 6px; background: #1d1030; color: #f5f0fa; }
+input[type=range] { width: 100%; accent-color: #ff5e62; }
+button { font: inherit; font-weight: 700; padding: 9px 10px; border: 1px solid #5b4480; border-radius: 8px; background: #241640; color: #f5f0fa; cursor: pointer; }
+button:hover { border-color: #ff5e62; }
+button.active { background: #ff5e62; border-color: #ff5e62; color: #fff; }
+button.export { background: linear-gradient(90deg, #ff5e62, #c026d3); border: 0; font-size: 17px; padding: 12px; }
+.row { display: flex; gap: 8px; }
+.row > * { flex: 1; }
+.row.seg { flex-wrap: wrap; }
+.row.seg button { flex: 1 1 auto; padding: 8px 6px; font-size: 13px; }
+.panel-pick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.panel-pick button { font-size: 12px; padding: 7px 2px; }
+#status { min-height: 1.2em; margin: 0; color: #ffd166; }
+.stage { display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 24px; }
+.stage canvas { max-width: min(62vw, 72vh); max-height: 78vh; width: auto; height: auto; box-shadow: 0 12px 44px rgba(0,0,0,0.55); border-radius: 4px; background: #fff; cursor: grab; }
+.hint { margin: 0; color: #9d8bb5; font-size: 13px; }
+body.shot-cover .controls, body.shot-cover .hint { display: none; }
+body.shot-cover .app { padding: 0; display: block; }
+body.shot-cover .stage { position: static; display: block; }
+body.shot-cover canvas { max-width: none; max-height: none; width: 100vw; height: 100vh; box-shadow: none; border-radius: 0; object-fit: contain; background: #fff; }

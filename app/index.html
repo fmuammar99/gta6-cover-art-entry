@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>VICE COVER <span>STUDIO</span></h1>
+    <p class="tagline">Your photo + a bold caption = a Vice City style poster. No upload, everything stays on your machine.</p>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <div class="panel-pick" id="panelPick" role="group" aria-label="Choose panel to edit"></div>
+      <label class="file-label">Photo for panel <b id="panelName">1</b>
+        <input id="photo" type="file" accept="image/*">
+      </label>
+      <div class="row">
+        <button id="sampleA" type="button">Sample: Boulevard</button>
+        <button id="sampleB" type="button">Sample: Pier</button>
+      </div>
+      <button id="fillAll" type="button">Use this photo in all panels</button>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.01" value="1"></label>
+      <label>Position X <input id="offX" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Position Y <input id="offY" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout</legend>
+      <div class="row seg" id="layoutSeg" role="group" aria-label="Layout">
+        <button type="button" data-layout="hero">Hero + 3</button>
+        <button type="button" data-layout="grid">Grid 4</button>
+        <button type="button" data-layout="full">Full-bleed</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Colour grade</legend>
+      <div class="row seg" id="gradeSeg" role="group" aria-label="Colour grade">
+        <button type="button" data-grade="sunset">Sunset</button>
+        <button type="button" data-grade="neon">Neon</button>
+        <button type="button" data-grade="palm">Palm</button>
+        <button type="button" data-grade="gold">Gold</button>
+        <button type="button" data-grade="noir">Noir</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Caption</legend>
+      <label>Title <input id="title" type="text" maxlength="32" value="SUNSET HEIST"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="VICE CITY · SUMMER 2026"></label>
+      <div class="row">
+        <label>Title size <input id="titleSize" type="range" min="0.7" max="1.4" step="0.05" value="1"></label>
+        <label>Title at
+          <select id="titlePos">
+            <option value="bottom">Bottom</option>
+            <option value="top">Top</option>
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Export size</legend>
+      <div class="row seg" id="sizeSeg" role="group" aria-label="Export size">
+        <button type="button" data-size="1080x1080">1080 × 1080</button>
+        <button type="button" data-size="1080x1350">1080 × 1350</button>
+        <button type="button" data-size="1920x1080">1920 × 1080</button>
+      </div>
+      <button id="export" type="button" class="export">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+  <section class="stage" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p class="hint">Live preview — what you see is what exports. Drag the preview to reposition the selected panel's photo.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
